@@ -7,11 +7,14 @@ if [ -z "$1" ]; then
 	exit 0;
 fi
 
+## append date
+DATE=`date +%Y-%m-%d`
+
 # set tag as travis environment variable
-travis env set TRAVIS_TAG v$TAGVERSION
+travis env set TRAVIS_TAG $TAGVERSION-$DATE
 
 # make git tag and push
-git tag -a v$TAGVERSION -m "Release v$TAGVERSION"
+git tag -a $TAGVERSION -m "Release v$TAGVERSION"
 git push --tags
 
 # unset environment variable
