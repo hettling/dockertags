@@ -1,6 +1,9 @@
 language: generic
 services:
   - docker
+deploy:
+  on:
+    tags: true
 env:
   global:
     - DOCKER_TAG=v0.1
