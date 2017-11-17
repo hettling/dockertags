@@ -2,8 +2,7 @@
 
 docker login -u $DOCKER_USER -p $DOCKER_PASS
 
-if [[ -v TRAVIS_TAG ]]; then
- 	DOCKER_TAG=testtag${TRAVIS_TAG}
+if [[ -v TRAVIS_TAG ]]; then 	
 	docker push $DOCKER_IMAGE_NAME:$DOCKER_TAG
 	echo "Deployed image $DOCKER_IMAGE_NAME:$DOCKER_TAG to docker hub."   
 fi

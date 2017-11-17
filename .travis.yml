@@ -4,7 +4,8 @@ services:
 env:
   global:
     - DOCKER_IMAGE_NAME=hettling/dockertags
-script:
+	- DOCKER_TAG=testtag${TRAVIS_TAG}
+	script:
   - docker build -t $DOCKER_IMAGE_NAME:$DOCKER_TAG -t $DOCKER_IMAGE_NAME:latest
 
 after_success:
