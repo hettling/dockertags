@@ -20,4 +20,4 @@ git tag -a $TAGVERSION -m "Release v$TAGVERSION"
 git push --tags
 
 # unset environment variable
-## travis env unset TRAVIS_TAG
+travis env unset TRAVIS_TAG
