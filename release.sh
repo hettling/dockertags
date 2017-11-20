@@ -10,12 +10,14 @@ fi
 ## append date
 DATE=`date +%Y-%m-%d`
 
+TAG=${TAGVERSION}-${DATE}
+
 # set tag as travis environment variable
-travis env set TRAVIS_TAG $TAGVERSION-$DATE
+travis env set TRAVIS_TAG $TAG
 
 # make git tag and push
 git tag -a $TAGVERSION -m "Release v$TAGVERSION"
 git push --tags
 
 # unset environment variable
-travis env unset TRAVIS_TAG
+## travis env unset TRAVIS_TAG
