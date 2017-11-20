@@ -9,7 +9,6 @@ fi
 
 ## append date
 DATE=`date +%Y-%m-%d`
-
 TAG=${TAGVERSION}-${DATE}
 
 # set tag as travis environment variable
