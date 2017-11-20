@@ -12,7 +12,7 @@ after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - docker push $DOCKER_IMAGE_NAME:latest
   - if [ -v TRAVIS_TAG ];
-	then docker push $DOCKER_IMAGE_NAME:TRAVIS_TAG;
-	fi
+    then docker push $DOCKER_IMAGE_NAME:TRAVIS_TAG;
+    fi
 
 	
