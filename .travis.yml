@@ -15,4 +15,3 @@ after_success:
     then docker push $DOCKER_IMAGE_NAME:TRAVIS_TAG;
     fi
 
-	
