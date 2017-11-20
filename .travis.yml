@@ -4,7 +4,6 @@ services:
 env:
   global:
     - DOCKER_IMAGE_NAME=hettling/dockertags
-#    - DOCKER_TAG=tag${TRAVIS_TAG}
 script:
   - docker build -t $DOCKER_IMAGE_NAME:latest ./
 
@@ -12,8 +11,6 @@ after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - docker push $DOCKER_IMAGE_NAME:latest
   - if [ ! -z ${TRAVIS_TAG+x} ];
-    then docker tag $DOCKER_IMAGE_NAME:latest $DOCKER_IMAGE_NAME:fault && docker push $DOCKER_IMAGE_NAME:fault;
+    then docker tag $DOCKER_IMAGE_NAME:latest $DOCKER_IMAGE_NAME:$TRAVIS_TAG && docker push $DOCKER_IMAGE_NAME:$TRAVIS_TAG;
     fi
-
-
-#   then docker tag $DOCKER_IMAGE_NAME:latest $DOCKER_IMAGE_NAME:$TRAVIS_TAG && docker push $DOCKER_IMAGE_NAME:$TRAVIS_TAG;
+   
